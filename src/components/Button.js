@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/Button.css";
+import "../styles/Button.css";
 import { Link } from "react-router-dom";
 
 const STYLES = ["btn--primary", "btn--outline"];
@@ -21,7 +21,7 @@ export const Button = ({
   return (
     <Link to="/sing-up" className="btn-mobile">
       <button
-        className={`btn${buttonStyle} ${buttonSize}`}
+        className={`btn${checkButtonStyle} ${CheckButtonSize}`}
         onClick={onClick}
         type={type}
       >

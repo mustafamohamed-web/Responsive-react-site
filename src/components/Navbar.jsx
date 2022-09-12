@@ -1,10 +1,24 @@
 import React, { useState } from "react";
+import { Button } from "./Button";
+import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
-  const [click, setClick] = useState(true);
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
+  window.addEventListener("resize", showButton);
+
   return (
     <>
       <nav className="navbar">
@@ -57,6 +71,7 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
+          {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
         </div>
       </nav>
     </>
